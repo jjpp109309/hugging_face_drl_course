@@ -28,8 +28,8 @@ action_space = env.action_space.n
 Qtable_frozenlake = initialize_q_table(state_space, action_space)
 
 # Training parameters
-n_training_episodes = 25_000  # Total training episodes
-learning_rate = 0.7  # Learning rate
+n_training_episodes = 500_000  # Total training episodes
+learning_rate = 0.01  # Learning rate
 
 # Evaluation parameters
 n_eval_episodes = 100  # Total number of test episodes
@@ -37,7 +37,7 @@ n_eval_episodes = 100  # Total number of test episodes
 # Environment parameters
 env_id = "Taxi-v3"  # Name of the environment
 max_steps = 99  # Max steps per episode
-gamma = 0.95  # Discounting rate
+gamma = 0.99  # Discounting rate
 eval_seed = [
     16,
     54,
@@ -143,8 +143,8 @@ eval_seed = [
 
 # Exploration parameters
 max_epsilon = 1.0  # Exploration probability at start
-min_epsilon = 0.05  # Minimum exploration probability
-decay_rate = 0.0005  # Exponential decay rate for exploration prob
+min_epsilon = 0.01  # Minimum exploration probability
+decay_rate = 0.0001  # Exponential decay rate for exploration prob
 
 Qtable_frozenlake = train(n_training_episodes, learning_rate, gamma, min_epsilon, max_epsilon, decay_rate, env, max_steps, Qtable_frozenlake)
 
